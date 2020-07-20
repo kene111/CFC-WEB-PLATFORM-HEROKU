@@ -1,0 +1,21 @@
+{% extends "chatbot/base.html" %}
+
+
+{% block content %} 
+
+	<h1 class = 'titles'> From The People </h1>
+	
+		{%  for info in infos %}
+		  <div class = "content_section">
+		  	    <small class="number_tag">{{ forloop.counter }})</small>
+			    <h2 class="alignment"> <small> Tweet: "{{info.Tweets}}"</small> </h2>
+			    <h3 class="alignment"> User: {{ info.User_Handle }}</h3>
+			    <h4 class="alignment"> Location: {{info.Location}}.</h4>  			    
+			    <h5 class="alignment"> The was tweeted on : {{info.Day_Created}}.</h5>
+			    			   
+		  </div>
+
+		{% endfor %}	 
+
+
+{% endblock content %}

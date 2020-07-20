@@ -1,0 +1,46 @@
+{% extends "chatbot/base.html" %}
+
+
+{% block content %} 
+<h1 class = 'titles'> Country </h1>
+
+      {% if c_results %}
+
+		{%  for c_result in c_results %}
+		  
+		  <div class = "content_section">
+
+		        <small class="number_tag">{{ forloop.counter }}) </small> 
+			    <h1 class="alignment"> <small> Headline: {{c_result.Headlines}}</small> </h1>
+			    <h2 class="alignment"><small> <b> Reporting From : {{c_result.Countries}}</b></small></h2> <!-- Country of Occurance -->
+			    <h3 class="alignment"><a href="{{c_result.Links}}"> Click for more information</a></h3>
+			    <h4 class="alignment"> This information was uploaded : {{c_result.Date_Uploaded}}  </h4>
+		    
+		  </div>
+		 {% endfor %}	
+
+	   {% else %}
+		   <div class = "content_section"><h2 class="alignment" style = "text-align: center;"> NO NEWS TO DISPLAY FOR YOUR COUNTRY. </h2></div>
+       {% endif %}
+
+		
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+	<h1 class = 'titles'> News World Wide </h1>
+
+
+		{%  for result in results %}
+		  <div class = "content_section">
+
+		        <small class="number_tag">{{ forloop.counter }}) </small> 
+			    <h1 class="alignment"> <small> Headline: {{result.Headlines}}</small> </h1>
+			    <h2 class="alignment"><small> <b> Reporting From : {{result.Countries}}</b></small></h2> <!-- Country of Occurance -->
+			    <h3 class="alignment"><a href="{{result.Links}}"> Click for more information</a></h3>
+			    <h4 class="alignment"> This information was uploaded : {{result.Date_Uploaded}}  </h4>
+		    
+		  </div>
+
+		{% endfor %}	 
+
+
+{% endblock content %}

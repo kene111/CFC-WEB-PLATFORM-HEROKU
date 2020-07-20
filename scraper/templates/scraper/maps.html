@@ -1,0 +1,31 @@
+{% extends "chatbot/base.html" %}
+{% block content %} 
+
+
+
+ <h2 class = 'titles' style ="text-align:center; text-decoration: underline; color:green; font-family: 'Sanchez', serif;"> MAP </h2>
+
+    <form id ='mymapform'  method="post" action="">{% csrf_token %}
+         {{ Rform.as_p }}
+        <button id = "route_bubu"  onclick = 'getLocation()' type="button" name="action">Route</button>
+    </form> 
+ 
+    <div id = "map">   
+    </div>
+
+    <div id='des_det' class='de_de'></div>
+
+  <!-- {% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+    {% endif %}  -->
+
+    <div id='hospitalPopUp' class ='hospitalPop'></div>
+    <button id = 'map_button1' onclick = 'getMyCurrentLocation()'> DISPLAY MY LOCATION </button>
+    <button id = 'map_button2' onclick = 'Location()' type="submit"> SEND MY LOCATION </button>
+    <button id = 'map_button3' onclick = 'hospitalLocation()' > NEAREST HOSPITAL </button>	
+    
+{% endblock content %}

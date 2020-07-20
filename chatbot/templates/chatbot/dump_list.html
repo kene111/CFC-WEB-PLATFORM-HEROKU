@@ -1,0 +1,46 @@
+            <div>  
+                <h3 class ='disaster_title' >EarthQuake Predicitions</h3>
+
+                {% if Happened_E %}
+                  <h3 class = 'warning'style ="text-align:center; color:gray;">  Here are some days within the next 21 days to watch out for: </h3>
+                    <ul >
+                        {% for day in Happened_E %} 
+                           <li style ="color:black; font-family: 'Lato', sans-serif;">{{ day }} </li>
+                        {% endfor %} 
+                    </ul>
+                {% else %}
+                   <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
+                {% endif %}
+
+            </div>
+            <div>
+                <h3 class ='disaster_title'> Tsunami Predicitions</h3>
+
+                {% if Happened_T %}
+                   <h3 class = 'warning' style ="text-align:center; color:gray;"> Here are some days within the next 21 days to watch out for: </h3>
+                   <ul >
+                       {% for t in Happened_T %}
+                          <li style ="color:black; font-family: 'Lato', sans-serif;">{{ t }}</li>
+                       {% endfor %}
+                   </ul>
+                {% else %}
+                    <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3> 
+                {% endif %}
+
+            </div>
+            <div>
+                <h3 class ='disaster_title' > Volcano Predicitions</h3>
+
+                {% if Happened_V %}
+                   <h3  class = 'warning' style ="">  Here are some days within the next 21 days to watch out for: </h3>
+
+                   <ul>
+                      {% for v in Happened_V %}
+                         <li style ="color:black; font-family: 'Lato', sans-serif;"> {{ v }} </li>
+                      {% endfor %}
+                   </ul>
+                {% else %}
+                  <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
+                {% endif %}       
+            </div>
+

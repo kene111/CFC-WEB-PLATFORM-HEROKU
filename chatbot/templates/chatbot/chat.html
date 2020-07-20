@@ -1,0 +1,17 @@
+{% extends "chatbot/base.html" %}
+
+
+{% block content %} 
+	<div id = "outter_div">
+		<h2 class = 'titles' style ="color: darkslategray; text-decoration: underline; font-family: 'Sanchez', serif;"> Ask Me!</h2>
+		<ul id= "ul_replies">
+			<li id ="li_replies" style ="color:darkslategray; font-family: 'Lato', sans-serif;"> {{ response }} </li>
+		</ul>
+	</div>
+	<div id = "ask_div">
+			<form id='theForm' method="post" action="">{% csrf_token %}
+				{{ form.as_p }}
+			 <button id = "bubu"  type="submit" name="action"> Enter </button>		 	
+			</form>
+	</div>
+{% endblock content %}

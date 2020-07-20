@@ -1,0 +1,109 @@
+{% extends "chatbot/base.html" %}
+{% block content %} 
+
+
+
+
+
+        <div id="div_1">
+                <h1 id ="h_1">  Hello There! </h1>
+                <p id ="p_1"> 
+                    I am a Natural Disaster Informant and Assistant, N.D.I.A for short. I am to provide you with updates on news about natural disasters around the world as fast as I can. 
+                    All informations provided are from certified websites and social channels so please be rest assured the information provided is as authentic as it can be. Questions asked would provide with
+                    answers at my best capabilites, if beyond me reference to adequate resources would be provided. Mapping functions are enabled to aid in routing, hospital locations and more. weekly predictions are provided to help in your daily activities.  
+                </p>            
+        </div>
+
+
+
+
+
+        <div id ="div_4">
+        {% if shows %}
+        {%  for show in shows %}
+        
+            <h2 class = 'h_4'> AREA TO CURRENTLY AVOID : {{ show.Place }} </h2>
+           <h2   class ='h_4'> DISASTER TYPE :  {{show.Disaster_Type}}</h2>
+        
+        {%  endfor %}
+        {% else %}
+            <h2 id='hh_4'> No Warnings to be Displayed</h2>
+       {% endif %}
+       </div> 
+
+
+
+
+
+         <div id ="div_3">   
+                <h1 id = "h_3"> Help Save People!</h1>
+                 <form id ='infrom_others'  method="post" action="">{% csrf_token %}
+                     {{ Hform.as_p }}
+                    <button id = "others_bubu"  onclick = 'HelpO()' name="action">Send</button>
+                </form>     
+                <h5 id = "hh_3" style ="color:gray; text-align: center;"> Help others know of places currently being affected, so such areas can be avoided. </h5>
+        </div>  
+
+
+
+
+         
+        <div id ="div_2">   
+                <h1 id = "h_2"> Weekly Predictions !</h1>
+                <h6 id = "hh_5" > Our predictions are based off tree based classifing algorithms that have been trained on certain natural disaster datasets, features are passed into these models on every page visit for classification. if interested, vist our Github page to know more, a link has been provided on the about page. </h6>           
+        </div>  
+
+
+
+
+
+        <div id = 'collect' class='flex-container'>
+           <!-- <div>  
+                <h3 class ='disaster_title' >EarthQuake Predicitions</h3>
+
+                {% if Happened_E %}
+                  <h3 class = 'warning'style ="text-align:center; color:gray;">  Here are some days within the next 21 days to watch out for: </h3>
+                    <ul >
+                        {% for day in Happened_E %} 
+                           <li style ="color:black; font-family: 'Lato', sans-serif;">{{ day }} </li>
+                        {% endfor %} 
+                    </ul>
+                {% else %}
+                   <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
+                {% endif %}
+
+            </div>
+            <div>
+                <h3 class ='disaster_title'> Tsunami Predicitions</h3>
+
+                {% if Happened_T %}
+                   <h3 class = 'warning' style ="text-align:center; color:gray;"> Here are some days within the next 21 days to watch out for: </h3>
+                   <ul >
+                       {% for t in Happened_T %}
+                          <li style ="color:black; font-family: 'Lato', sans-serif;">{{ t }}</li>
+                       {% endfor %}
+                   </ul>
+                {% else %}
+                    <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3> 
+                {% endif %}
+
+            </div>
+            <div>
+                <h3 class ='disaster_title' > Volcano Predicitions</h3>
+
+                {% if Happened_V %}
+                   <h3  class = 'warning' style ="">  Here are some days within the next 21 days to watch out for: </h3>
+
+                   <ul>
+                      {% for v in Happened_V %}
+                         <li style ="color:black; font-family: 'Lato', sans-serif;"> {{ v }} </li>
+                      {% endfor %}
+                   </ul>
+                {% else %}
+                  <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
+                {% endif %}       
+            </div> -->
+        </div>
+ 
+       
+{% endblock content %}

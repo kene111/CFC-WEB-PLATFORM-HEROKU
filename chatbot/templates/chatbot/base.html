@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+      {% if title %}
+        <title> N.D.I.A | {{ title }} </title>
+      {% else %}
+        <title> N.D.I.A </title>
+      {% endif %}
+
+        <link rel="stylesheet" type= "text/css" href="{% static 'chatbot/main.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@600&family=PT+Serif&family=Simonetta:ital@1&family=Slabo+27px&display=swap" rel="stylesheet">
+        
+    </head>
+
+<body>
+        <header id = "head">
+          <div id ="navigation">
+             <ul id = "ul_1">
+                 <li class="l_1"><a href="{% url 'chatbot-ndia' %}">N.D.I.A</a></li>
+                 <li class="l_1"><a href="{% url 'chatbot-chat' %}">Ask Me</a></li>
+                 <li class="l_1"><a href="{% url 'scraper-maps' %}">Maps</a></li>
+                 <li class="l_1"><a href="{% url 'chatbot-about' %}">About</a></li>
+                 <li class="l_drop">
+                         <a href="javascript:void(0)" class="drop_btn">Information</a>
+                         <div class="drop_content">
+                           <a href="{% url 'scraper-scraped' %}">Latest Updates</a>
+                           <a href="{% url 'scraper-tweets' %}">Voices</a>  
+                         </div>
+                 </li>
+             </ul>
+          </div>
+          <div id="logo"> <a href ="/"> <img id ="ibm_image" src= '{% static "chatbot/cfc.png" %}' alt="IBM Call For Code"> </a> </div>
+        </header>
+       
+       <div class ="content">
+          {% block content %} 
+          {% endblock %}
+       </div>
+
+       <footer id= "foot" >
+          <p id = "id_footer"> Team N.D.I.A ©  2020</p>
+       </footer> 
+       
+  
+       <script type="text/javascript" src = "{% static 'chatbot/JSfile.js' %}" ></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+       <!--<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+       <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeOrhKsAdJ_iInlOzsyQS8aiB95FXj6cw&callback=getMyCurrentLocation"></script>
+       <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"> -->
+                                                                
+</script>
+</body>
+</html>
