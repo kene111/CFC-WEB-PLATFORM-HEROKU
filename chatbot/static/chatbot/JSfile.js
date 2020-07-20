@@ -225,7 +225,7 @@ function News(position){                  // recieve coordinates from NewsLocati
 
             setRequestHeader();
 
-            console.log(country); // for the news platform at the backend
+         // for the news platform at the backend
 
             var clink = '/scraper/infomation/';
             $.ajax({
@@ -462,12 +462,10 @@ function sendLocation(position){                  // recieve coordinates from Ne
                 url : link,          
                 type : 'POST',
                 data: {'location':location,'address':address},
-                dataType : 'html',
-                success: function(data){
-                    if(data.success==true){
-                        alert("Your Location has been sent.");
-
-                    }
+                dataType : 'json',
+                success: function(){
+                    alert("Your Location has been sent.");
+                    
                 },
             });
         }
@@ -503,13 +501,7 @@ function toTheBack(position){
             let response = JSON.parse(xhttp.responseText);
             var country = response.results[0].address_components[6].short_name;
 
-            if(country == country){
-
-                //var place = document.getElementById('id_place').value;
-                //var disas = document.getElementById('id_disas').value;
-                console.log(country)
-                
-
+            //if(country == country){
                 setRequestHeader();
 
                 var Hlink = '/chatbot/ndia/';
@@ -519,7 +511,7 @@ function toTheBack(position){
                     data: {'country':country},
                     dataType: 'json',
                 });
-            }
+            //}
             
         }
       };
@@ -548,7 +540,7 @@ function forPredict(position){
 
     setRequestHeader();
 
-    console.log('yes')
+    
 
     var Plink = '/chatbot/prediction/';
     $.ajax({
@@ -557,11 +549,8 @@ function forPredict(position){
         data: {'lat':lat,'long':long},
         dataType: 'html',
         success: function(json){
-            //document.documentElement.innerHTML=json;
-            //close_preloader();
-            console.log(json)
             $('#collect').html(json)
-            //close_preloader();
+        
              
         },
     });

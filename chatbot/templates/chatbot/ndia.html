@@ -9,7 +9,7 @@
                 <h1 id ="h_1">  Hello There! </h1>
                 <p id ="p_1"> 
                     I am a Natural Disaster Informant and Assistant, N.D.I.A for short. I am to provide you with updates on news about natural disasters around the world as fast as I can. 
-                    All informations provided are from certified websites and social channels so please be rest assured the information provided is as authentic as it can be. Questions asked would provide with
+                    All informations provided are from certified websites and social channels so please be rest assured the information provided is as authentic as it can be. Questions asked would be provided with
                     answers at my best capabilites, if beyond me reference to adequate resources would be provided. Mapping functions are enabled to aid in routing, hospital locations and more. weekly predictions are provided to help in your daily activities.  
                 </p>            
         </div>
@@ -20,16 +20,16 @@
 
         <div id ="div_4">
         {% if shows %}
-        {%  for show in shows %}
+          {%  for show in shows %} 
         
             <h2 class = 'h_4'> AREA TO CURRENTLY AVOID : {{ show.Place }} </h2>
-           <h2   class ='h_4'> DISASTER TYPE :  {{show.Disaster_Type}}</h2>
+           <h2   class ='h_4'> DISASTER TYPE :  {{ show.Disaster_Type }}</h2>      <!--   .Place   .Disaster_Type-->
         
-        {%  endfor %}
+        {%  endfor %} 
         {% else %}
             <h2 id='hh_4'> No Warnings to be Displayed</h2>
-       {% endif %}
-       </div> 
+        {% endif %}
+        </div> 
 
 
 
@@ -58,51 +58,7 @@
 
 
         <div id = 'collect' class='flex-container'>
-           <!-- <div>  
-                <h3 class ='disaster_title' >EarthQuake Predicitions</h3>
-
-                {% if Happened_E %}
-                  <h3 class = 'warning'style ="text-align:center; color:gray;">  Here are some days within the next 21 days to watch out for: </h3>
-                    <ul >
-                        {% for day in Happened_E %} 
-                           <li style ="color:black; font-family: 'Lato', sans-serif;">{{ day }} </li>
-                        {% endfor %} 
-                    </ul>
-                {% else %}
-                   <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
-                {% endif %}
-
-            </div>
-            <div>
-                <h3 class ='disaster_title'> Tsunami Predicitions</h3>
-
-                {% if Happened_T %}
-                   <h3 class = 'warning' style ="text-align:center; color:gray;"> Here are some days within the next 21 days to watch out for: </h3>
-                   <ul >
-                       {% for t in Happened_T %}
-                          <li style ="color:black; font-family: 'Lato', sans-serif;">{{ t }}</li>
-                       {% endfor %}
-                   </ul>
-                {% else %}
-                    <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3> 
-                {% endif %}
-
-            </div>
-            <div>
-                <h3 class ='disaster_title' > Volcano Predicitions</h3>
-
-                {% if Happened_V %}
-                   <h3  class = 'warning' style ="">  Here are some days within the next 21 days to watch out for: </h3>
-
-                   <ul>
-                      {% for v in Happened_V %}
-                         <li style ="color:black; font-family: 'Lato', sans-serif;"> {{ v }} </li>
-                      {% endfor %}
-                   </ul>
-                {% else %}
-                  <h3  class= 'safe'> Everything Looks safe for the next 21 days, but please do pay attention to the environment and news outlets. </h3>
-                {% endif %}       
-            </div> -->
+           
         </div>
  
        

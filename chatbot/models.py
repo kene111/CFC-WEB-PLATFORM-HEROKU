@@ -9,23 +9,6 @@ class Help(models.Model):
 	def __str__(self):
 		return self.Place
 
+	class Meta:
+		get_latest_by = ['Place']
 
-#class Earth_p(models.Model):
-#	Yes_e =  models.TextField(max_length=300,default=None,null=True)
-
-#	def __str__(self):
-#		return self.Yes_e
-
-
-#class Tsu_p(models.Model):
-#	Yes_t =  models.TextField(max_length=300,default=None, null=True)
-
-#	def __str__(self):
-#		return self.Yes_t
-
-
-#class Volc_p(models.Model):
-#	Yes_v =  models.TextField(max_length=300,default=None,null=True)
-	
-#	def __str__(self):
-#		return self.Yes_v

@@ -12,14 +12,17 @@ import datetime
 import time
 import threading
 import numpy as np
+from  django.db.models import Max
 # Create your views here.
 
 def chat(request):
+
+
 	
 	#Help.objects.all().delete()
-	#country = request.POST.get('country')
-	
-
+	country = request.POST.get('country')
+	print(country)
+	print('yes')
 	
 
 	if request.method == 'POST':
@@ -30,19 +33,21 @@ def chat(request):
 			disaster_type = Hform.cleaned_data.get('disaster_type')
 			place =  place.upper()
 			disaster_type = disaster_type.upper()
-			print(place)
-			print(disaster_type)
-			
-			country = request.POST.get('country')
-			print(country)
-
+		
 			if country == country:
-				Help.objects.create(Place=place, Disaster_Type=disaster_type)			
+				Help.objects.create(Place=place, Disaster_Type=disaster_type)
+	
 	else:
 		Hform = help_others()
 
 
-	shows = Help.objects.values('Place').annotate(place_count=Count('Place')).order_by('-place_count')
+
+
+	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count')[0] # get the highest occuring variable in place column
+	max_var = get_max[0] # the variable, string.
+	filt = Help.objects.filter(Place = max_var).aggregate(maxoccurance=Max('Disaster_Type'))['maxoccurance'] # filter by max occuring disaster type
+	print(filt)
+	shows = Help.objects.filter(Place = max_var, Disaster_Type = filt)[0:1]
 	print(shows)
 	
 
@@ -74,7 +79,6 @@ class CommentView(FormView):
 
 def prediction(request):
 
-	print('yes')
 
 	if request.method == 'POST':
 
@@ -118,16 +122,11 @@ def prediction(request):
 
 		current_stat['latitude'] = latitude
 		current_stat['longitude'] = longitude
-		print(current_stat)
+		
 
-		#Earth_x = ChatbotConfig.EarthClass.predict(current_stat)
-		#Tsu_x = ChatbotConfig.TsuClass.predict(current_stat)
-		#Volc_x = ChatbotConfig.VolClass.predict(current_stat)
-
-		Earth_x = [0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,1,1]
-		Tsu_x   = [0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0]
-		Volc_x  = [1,1,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0]
-
+		Earth_x = ChatbotConfig.EarthClass.predict(current_stat)
+		Tsu_x = ChatbotConfig.TsuClass.predict(current_stat)
+		Volc_x = ChatbotConfig.VolClass.predict(current_stat)
 
 		for i in range(len(Earth_x)):
 			if Earth_x[i] == 0:
@@ -146,10 +145,6 @@ def prediction(request):
 				pass
 			if Volc_x[i] == 1:
 				Happened_V.append(str(date_list[i]))#Volc_p.objects.create(Yes_e = date_list[i])
-
-		print(Happened_E)
-		print(Happened_T)
-		print(Happened_V)
 
 	predictions = {'title':'Home','Happened_E': Happened_E, 'Happened_T': Happened_T,'Happened_V': Happened_V}
 	return render(request,'chatbot/dump_list.html', predictions)

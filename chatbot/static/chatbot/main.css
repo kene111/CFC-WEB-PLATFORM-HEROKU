@@ -17,6 +17,8 @@ html,body {
 }
 
 /* ------------------------------------------------------------------------Header----------------------------------------------------------------------------------*/
+
+
 #head{
  position: relative;
 }
@@ -117,7 +119,6 @@ li a, .drop_btn {
     text-decoration: none;
     opacity:0;
     transform: translateY(-60px);
-    ;
     
 }
 
@@ -205,6 +206,9 @@ li a:hover, .l_drop:hover .drop_btn{
     transform: translateY(0);
   }
 }
+
+
+
 /*---------- Media Queries for Header for small devices ------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -236,6 +240,8 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /* -------------------------------------------------------------------N.D.I.A div 1-----------------------------------------------------------------------------------------*/
+@media (min-width:1200px) {
+
 #div_1 {
     opacity: 0.8;
     color:white;
@@ -311,6 +317,8 @@ li a:hover, .l_drop:hover .drop_btn{
   }
 }
 
+}
+
 /*---------- Media Queries for div 1 in N.D.A.I  ( small screens )------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -347,7 +355,9 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /* --------------------------------------------------------- N.D.I.A div 2 ----------------------------------------------------------------------------------------------*/
-  
+ @media (min-width:1200px) { 
+
+
 #div_2{
   margin-top: 1.5px; 
   margin-bottom: 1.5px;
@@ -421,7 +431,7 @@ li a:hover, .l_drop:hover .drop_btn{
   }
 }
 
-
+}
 /*---------- Media Queries for div 2 in N.D.A.I (small screens) ------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -446,6 +456,9 @@ li a:hover, .l_drop:hover .drop_btn{
 }
 
 /*-------------------------------------------------------------N.D.I.A div  3 -----------------------------------------------------------------------------------------*/
+
+
+@media (min-width:1200px) {
 
 #div_3{
   margin-top: 3px; 
@@ -501,6 +514,9 @@ li a:hover, .l_drop:hover .drop_btn{
   font-size: 16px;
   padding: 9px;
   margin-left: 950px;
+}
+
+
 }
 
 /*-------------------------------------------------- media queries for div 3  in N.D.I.A(small screens) ---------------------------------------------------------------------------------------*/
@@ -595,7 +611,7 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-bottom: 1.5px;
   margin-right: 1.5px;
   padding: 15px;
-  background-color: maroon;
+  background-color: maroon; /*maroon*/
   height: 90px;
   border: 2.5px solid darkgray;
   
@@ -612,9 +628,11 @@ li a:hover, .l_drop:hover .drop_btn{
 
  color:white; 
  position: relative;
- left: 33%;
+ left: 26%;
 
 }
+
+
 
 
 @media screen and (max-width: 600px) {
@@ -655,8 +673,7 @@ li a:hover, .l_drop:hover .drop_btn{
   padding:20px;
   margin:5px;
   font-size:15px;
-  height: 280px;
-  width: 570px;
+  width: 670px;
 }
 
 .safe{
@@ -668,17 +685,23 @@ li a:hover, .l_drop:hover .drop_btn{
 
 .warning{
 
-  text-align:center; 
+  text-align:center;
   color:gray;
   font-family: 'Lato', sans-serif;
 }
+.warn_list{
+  color:black; 
+  font-family: 'Lato', sans-serif;
 
+}
 .disaster_title{
   color:darkslategray; 
   text-align: center;
   font-family: 'Sanchez', serif;
 
 }
+
+
 
 /* ------------------------------------------media queries for div 5 in N.D.I.A (SMALL SCREENS) ---------------------------------------------------------*/
 
@@ -689,14 +712,41 @@ li a:hover, .l_drop:hover .drop_btn{
   padding:8px;
   margin:2.3px;
   font-size:15px;
-  height: 330px;
   width: 100px;
+}
+
+
+.safe{
+  color:gray; 
+  text-align: center; 
+  padding:5px;
+  font-family: 'Lato', sans-serif;
+}
+
+.warning{
+  text-align:center;
+  color:gray;
+  font-family: 'Lato', sans-serif;
+}
+
+.disaster_title{
+  color:darkslategray; 
+  text-align: center;
+  font-family: 'Sanchez', serif;
+
+}
+.warn_list{
+  color:black; 
+  font-family: 'Lato', sans-serif;
+  
 }
 
 }
 
 
 /* ----------------------------------------------------------- CHATBOT ----------------------------------------------------------------------------------------------*/
+
+
 #outter_div{
   padding:9px;
   background-color:lightgray;
@@ -750,6 +800,7 @@ li a:hover, .l_drop:hover .drop_btn{
   resize: none;
   font-family: 'PT Serif', serif;
 }
+
 /*---------- Media Queries for chatbot in N.D.A.I ------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -780,7 +831,7 @@ li a:hover, .l_drop:hover .drop_btn{
   background-color: #555555;
   font-size: 16px;
   padding: 16px;
-  margin-left: 290px;
+  margin-left: 286px;
 }
 
 .commentclass{
@@ -797,215 +848,6 @@ li a:hover, .l_drop:hover .drop_btn{
 }
 
 
-
-
-/* -------------------------- medium screen size ---------------------------------*/
-/*
-@media (min-width:600px) and (max-width:900px){
-
-  #outter_div{
-    padding:9px;
-    background-color:lightgray;
-    height:650px;
-    width: 97.1%; 
-    position:relative;
-    border-top-right-radius: 2.5px;
-    border-top-left-radius: 2.5px;
-    border: 2.5px solid whitesmoke;
- } 
-
- #ask_div{
-  position: relative;  
-  background-color:gray;
-  width:99.5%;
-  padding:3px;
-  border-bottom-right-radius: 2.5px;
-  border-bottom-left-radius: 2.5px;
-}
-#bubu{
-  color:white; 
-  position: relative;
-  top: -85px;
-  border-radius: 30px;
-  background-color: #555555;
-  font-size: 16px;
-  padding: 16px;
-  margin-left: 650px;
-}
-
-.commentclass{
-  width:620px; 
-  height: 80px; 
-  resize: none;
-}
-
-#theForm{
-  position: relative;
-  left:5px;
-}
-
-}*/
-
-/*------------------------------large screen size ---------------------------------------------------*/
-/*
-@media (min-width:901px){
-
- #outter_div{
-    padding:9px;
-    background-color:lightgray;
-    height:620px; 
-    width: 98.5%; 
-    position:relative;
-    border-top-right-radius: 2.5px;
-    border-top-left-radius: 2.5px;
-    border: 2.5px solid whitesmoke;
- } 
-
- #ask_div{
-  position: relative;  
-  background-color:gray;
-  width:99.7%;
-  padding:3px;
-  border-bottom-right-radius: 2.5px;
-  border-bottom-left-radius: 2.5px;
-}
-#bubu{
-  color:white; 
-  position: relative;
-  top: -85px;
-  border-radius: 30px;
-  background-color: #555555;
-  font-size: 16px;
-  padding: 16px;
-  margin-left: 1300px;
-}
-
-.commentclass{
-  width:1250px; 
-  height: 80px; 
-  resize: none;
-}
-
-#theForm{
-  position: relative;
-  left:5px;
-
-}
-
-}*/
-
-/*
-@media (min-height:1200px){
-
-  #outter_div{
-  padding:9px;
-  background-color:lightgray;
-  height:985px; 
-  width: 98.4%; 
-  position:relative;
-  border-top-right-radius: 2.5px;
-  border-top-left-radius: 2.5px;
-  border: 2.5px solid whitesmoke;
-} 
-
-
-#ask_div{
-  position: relative;  
-  background-color:gray;
-  width:99.6%;
-  padding:3px;
-  border-bottom-right-radius: 2.5px;
-  border-bottom-left-radius: 2.5px;
-}
-#bubu{
-  color:white; 
-  
-  position: relative;
-  top: -80px;
-  border-radius: 30px;
-  background-color: #555555;
-  font-size: 16px;
-  padding: 16px;
-  margin-left: 880px;
-}
-
-#ul_replies{
-  list-style-type: none;
-}
-
-#li_replies{
-  padding:15px; 
-  font-size: 19px;
-
-}
-#theForm{
-  position: relative;
-  left:30px;
-}
-.commentclass{
-  width:850px; 
-  height: 60px; 
-  resize: none;
-}
-  
-}
-*/
-/*
-
-@media(min-width: 1200px) {
-
-#outter_div{
-  padding:9px;
-  background-color:lightgray;
-  height:725px; 
-  width: 98.4%; 
-  position:relative;
-  border-top-right-radius: 2.5px;
-  border-top-left-radius: 2.5px;
-  border: 2.5px solid whitesmoke;
-} 
-
-
-#ask_div{
-  position: relative;  
-  background-color:gray;
-  width:99.6%; 
-  padding:3px;
-  border-bottom-right-radius: 2.5px;
-  border-bottom-left-radius: 2.5px;
-}
-#bubu{
-  color:white; 
-
-  position: relative;
-  top: -80px;
-  border-radius: 30px;
-  background-color: #555555;
-  font-size: 16px;
-  padding: 16px;
-  margin-left: 1090px;
-}
-
-#ul_replies{
-  list-style-type: none;
-}
-
-#li_replies{
-  padding:15px; 
-  font-size: 19px;
-
-}
-#theForm{
-  position: relative;
-  left:30px;
-}
-.commentclass{
-  width:1050px; 
-  height: 60px; 
-  resize: none;
-}
-  
-}*/
 
 
 /*----------------------------------------------------------------------GENERAL-------------------------------------------------------------------------------------------*/
@@ -1037,6 +879,7 @@ li a:hover, .l_drop:hover .drop_btn{
   text-align: center; 
   color: green;
   padding:20px;
+  font-family: 'Sanchez', serif; 
 }
 
 
@@ -1157,6 +1000,8 @@ li a:hover, .l_drop:hover .drop_btn{
   top: -5px;
 }
 
+
+
 /*---------- Media Queries for Maps------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -1270,244 +1115,13 @@ li a:hover, .l_drop:hover .drop_btn{
 }
 
 
-/*
-@media (min-width:600px) and (max-width:900px){
-
-#map{
-    position: relative;
-    left: 1px;
-    padding:9px;
-    background-color: lightgray;
-    height:700px; 
-    width: 96.8%;
-    top:-35px;
-    border-radius: 25px;
-    border: 2.5px solid whitesmoke;
-  }
 
 
-.de_de{
-  position: absolute;
-  visibility: visible;
-  width:110px;
-  cursor: pointer;
-  background-color:#555;
-  border-radius: 6px;
-  padding:0px;
-  top:290px;
-  left: 295px;
-  margin-left: -280px;
-  overflow: auto;
-  z-index:1;
-}
-
-  .routeclass{
-  position: relative;
-  left: 45px;
-  width: 560px; 
-  height: 15px; 
-  resize: none;
-
-
-}
-
-
-.hospitalPop {
-  position: relative;
-  visibility: visible;
-  width:300px;
-  cursor: pointer;
-  background-color:#555;
-  border-radius: 6px;
-  padding:0px;
-  top:-30px;
-  left: 320px;
-  margin-left: -80px;
-}
-
-.hospitalPop .show {
-  visibility: visible; 
-}
-
-
-#mymapform{
-  position: relative;
-  left:23px; 
-  z-index: 99999;
-}
-
-#route_bubu{
-  position:relative;
-  left: 645px;
-  padding: 5px;
-  border-radius: 5px;
-  background-color:whitesmoke;
-  font-size: 13px;
-  color:black;
-  top: -45px;
-  }
-
-#map_button1{
-    position:relative;
-    left: 43px;
-    padding: 20px;
-    width:89%;
-    border-radius: 5px;
-    background-color: #555555;
-    font-size: 16px;
-    color:blanchedalmond;
-    top: -25px;
-  }
-
-  #map_button2{
-  position:relative;
-  left: 43px;
-  padding: 20px;
-  width:89%;
-  border-radius: 5px;
-  background-color: #555555;
-  font-size: 16px;
-  color:blanchedalmond;
-  top: -15px;
-}
-
-#map_button3{
-  position:relative;
-  left: 43px;
-  padding: 20px;
-  width:89%;
-  border-radius: 5px;
-  background-color: #555555;
-  font-size: 16px;
-  color:blanchedalmond;
-  top: -5px;
-}
-
-}*/
-
-
-
-
-@media (min-height:1200px){
-
-
-#map{
-    position: relative;
-    left:15px; /*275*/
-    padding:9px;
-    background-color:lightgray;
-    height:950px; /*449*/ /*600*/
-    width:95%; /*60*/
-    top:-15px; /* top:-35px;*/
-    border-radius: 25px;
-    border: 2.5px solid whitesmoke;
-} 
-
-
-.hospitalPop {
-  position: relative;
-  visibility: visible;
-  width:300px;
-  cursor: pointer;
-  background-color:#555;
-  border-radius: 6px;
-  padding:0px;
-  top:-10px;
-  left: 450px;
-  margin-left: -80px;
-  overflow: auto;
-
-
-}
-
-
-.de_de{
-  position: absolute;
-  visibility: visible;
-  width:110px;
-  cursor: pointer;
-  background-color:#555;
-  border-radius: 6px;
-  padding:0px;
-  top:300px;
-  left: 375px;
-  margin-left: -280px;
-  overflow: auto;
-  z-index:1;
-}
-
-
-.hide {
-  display:none;
-}
-
-
-#mymapform{
-  position: relative;
-  left:295px;
-  
-}
-
-#route_bubu{
-  position:relative;
-  left: 550px;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: whitesmoke; /*#555555*/
-  font-size: 13px;
-  color:black; /*blanchedalmond*/
-  top: -45px;
-  }
-
- 
-.routeclass{
-  width: 670px; 
-  height: 15px; 
-  resize: none;
-  position:relative;
-  left:-160px;
-}
-
- 
-#map_button1{
-  position:relative;
-  left: 90px;  /*275*/       /*510*/
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #555555;
-  font-size: 16px;
-  color:blanchedalmond;
-  width:26%;
-  top: -5px;
-}
-
-#map_button2{
-  position:relative;
-  left: 120px; /*285*/
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #555555;
-  font-size: 16px;
-  color:blanchedalmond;
-  width:26%;
-  top: -5px;
-}
-
-#map_button3{
-  position:relative;
-  left: 150px;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #555555;
-  font-size: 16px;
-  color:blanchedalmond;
-  width:26%;
-  top: -5px;
-}
-}
 
 
 /* ------------------------------------------------------------------------- FOOTER --------------------------------------------------------------------------------*/
+
+
 #foot{
   background-color:#333; 
   padding: 10px; 
@@ -1542,7 +1156,6 @@ li a:hover, .l_drop:hover .drop_btn{
 
 @media (min-height:700px){
 
-
 #id_footer{
   color: beige;
   text-align: center;
@@ -1566,8 +1179,11 @@ li a:hover, .l_drop:hover .drop_btn{
 
 }
 
+
+/*---------------------------------------------------------ABOUT PAGE----------------------------------------------------------------------------------------------*/
+@media (min-width:1200px) {
 #about{
-  margin-bottom: 90px;
+  margin-bottom: 7%;
 }
 
 
@@ -1586,6 +1202,33 @@ li a:hover, .l_drop:hover .drop_btn{
   padding-right:15px;
   padding-bottom:15px;
   color: darkslategray;
+
 }
 
 
+}
+@media (max-height:600px){
+
+
+.about_title{
+  font-family: 'Sanchez', serif;
+  color:black;
+  text-decoration: underline;
+  padding-top:15px;
+  padding-right:15px;
+  padding-left:15px;
+  text-align: center;
+}
+
+
+.about_para{
+  font-family: 'Lato', sans-serif;
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:15px;
+  color: darkslategray;
+  text-align: center;
+
+}
+
+}
