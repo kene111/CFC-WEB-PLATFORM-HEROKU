@@ -464,6 +464,7 @@ function sendLocation(position){                  // recieve coordinates from Ne
                 data: {'location':location,'address':address},
                 dataType : 'json',
                 success: function(){
+
                     alert("Your Location has been sent.");
                     
                 },
@@ -549,10 +550,18 @@ function forPredict(position){
         data: {'lat':lat,'long':long},
         dataType: 'html',
         success: function(json){
-            $('#collect').html(json)
-        
-             
+            $('#collect').html(json)    
         },
     });
 
 }
+
+// reloading the web page every hour
+$(document).ready(function(){
+    setInterval(function(){ reload_page(); },60*60000); // 60*60000 : 1 hr
+ });
+
+ function reload_page()
+ {
+    window.location.reload(true);
+ }

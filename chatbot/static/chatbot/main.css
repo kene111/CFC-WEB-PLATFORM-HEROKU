@@ -240,7 +240,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /* -------------------------------------------------------------------N.D.I.A div 1-----------------------------------------------------------------------------------------*/
-@media (min-width:1200px) {
+
 
 #div_1 {
     opacity: 0.8;
@@ -317,7 +317,7 @@ li a:hover, .l_drop:hover .drop_btn{
   }
 }
 
-}
+
 
 /*---------- Media Queries for div 1 in N.D.A.I  ( small screens )------------------------*/
 @media screen and (max-width: 600px) {
@@ -355,9 +355,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /* --------------------------------------------------------- N.D.I.A div 2 ----------------------------------------------------------------------------------------------*/
- @media (min-width:1200px) { 
-
-
+ 
 #div_2{
   margin-top: 1.5px; 
   margin-bottom: 1.5px;
@@ -431,7 +429,6 @@ li a:hover, .l_drop:hover .drop_btn{
   }
 }
 
-}
 /*---------- Media Queries for div 2 in N.D.A.I (small screens) ------------------------*/
 @media screen and (max-width: 600px) {
 
@@ -457,8 +454,6 @@ li a:hover, .l_drop:hover .drop_btn{
 
 /*-------------------------------------------------------------N.D.I.A div  3 -----------------------------------------------------------------------------------------*/
 
-
-@media (min-width:1200px) {
 
 #div_3{
   margin-top: 3px; 
@@ -517,7 +512,6 @@ li a:hover, .l_drop:hover .drop_btn{
 }
 
 
-}
 
 /*-------------------------------------------------- media queries for div 3  in N.D.I.A(small screens) ---------------------------------------------------------------------------------------*/
 
@@ -611,7 +605,7 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-bottom: 1.5px;
   margin-right: 1.5px;
   padding: 15px;
-  background-color: maroon; /*maroon*/
+  background-color: blue; /*maroon*/
   height: 90px;
   border: 2.5px solid darkgray;
   
@@ -1181,7 +1175,6 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /*---------------------------------------------------------ABOUT PAGE----------------------------------------------------------------------------------------------*/
-@media (min-width:1200px) {
 #about{
   margin-bottom: 7%;
 }
@@ -1206,7 +1199,7 @@ li a:hover, .l_drop:hover .drop_btn{
 }
 
 
-}
+
 @media (max-height:600px){
 
 

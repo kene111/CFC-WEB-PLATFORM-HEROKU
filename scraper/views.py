@@ -204,8 +204,8 @@ def map(request):
 		email_from = settings.EMAIL_HOST_USER
 		reciever = ['kenechiojukwu@gmail.com']
 		send_mail(subject, message, email_from, reciever, fail_silently = False)
-		#messages.success(request, 'Your location has been successfully sent',extra_tags='alert')
-		#return redirect('scraper:maps') #/scraper/maps/
+		messages.success(request, 'Your location has been successfully sent',extra_tags='alert')
+		return redirect('scraper:maps') #/scraper/maps/
 	
 
 	return render(request,'scraper/maps.html', {'title': 'Maps','Rform': Rform})
