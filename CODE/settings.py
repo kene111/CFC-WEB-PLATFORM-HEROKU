@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,21 +83,24 @@ WSGI_APPLICATION = 'CODE.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
-#'ENGINE': 'django.db.backends.sqlite3',
-#'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'scraper', #Name of app
-        'USER':'postgres',
-        'PASSWORD':'gr@yclouds',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
 }
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'scraper', #Name of app
+#        'USER':'postgres',
+#        'PASSWORD':'gr@yclouds',
+#        'HOST':'localhost',
+#        'PORT':'5432',
+#    },
+#}
 
 
 # Password validation
@@ -145,4 +149,8 @@ EMAIL_HOST_USER = 'tocrear.3@gmail.com'
 EMAIL_HOST_PASSWORD = '3L_9sy_Congr00'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+
+
+django_heroku.settings(locals())
 
