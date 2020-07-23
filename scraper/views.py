@@ -200,7 +200,7 @@ def map(request):
 		coor =  request.POST.get('location') #  request.POST['location']
 		address = request.POST.get('address')  #  request.POST['address']
 		subject ='Locate ME!'
-		message =' I need help! I am at this address: {}, and these are my coordinates: {} if needed. A route to my current position can be gotten by pasting my address on the route engine on https://NDIA/scraper/maps.com'.format(address, coor)
+		message =' I need help! I am at this address: {}, and these are my coordinates: {} if needed. A route to my current position can be gotten by pasting my address on the route engine on https://n-dia.herokuapp.com/scraper/maps/'.format(address, coor)
 		email_from = settings.EMAIL_HOST_USER
 		reciever = ['kenechiojukwu@gmail.com']
 		send_mail(subject, message, email_from, reciever, fail_silently = False)
