@@ -605,7 +605,7 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-bottom: 1.5px;
   margin-right: 1.5px;
   padding: 15px;
-  background-color: blue; /*maroon*/
+  background-color: maroon; /*maroon*/
   height: 90px;
   border: 2.5px solid darkgray;
   
@@ -706,7 +706,7 @@ li a:hover, .l_drop:hover .drop_btn{
   padding:8px;
   margin:2.3px;
   font-size:15px;
-  width: 100px;
+  width: 110px;
 }
 
 

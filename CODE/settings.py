@@ -28,9 +28,9 @@ ML_MODELS = os.path.join(BASE_DIR, 'chatbot/ML_models')
 SECRET_KEY = 'wha%frucu_vj&p-3(y7@zn!mq=+@v6b1rxu(&2=c!=&gvxq2e='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] # 'code-thankful-ratel-an.eu-gb.mybluemix.net'
 
 
 # Application definition
@@ -133,8 +133,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -143,3 +143,4 @@ EMAIL_HOST_USER = 'tocrear.3@gmail.com'
 EMAIL_HOST_PASSWORD = '3L_9sy_Congr00'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+

@@ -505,7 +505,7 @@ function toTheBack(position){
             //if(country == country){
                 setRequestHeader();
 
-                var Hlink = '/chatbot/ndia/';
+                var Hlink = '/chatbot/ndia/';// '/chatbot/ndia/'
                 $.ajax({
                     url : Hlink,          
                     type : 'POST',
@@ -543,7 +543,7 @@ function forPredict(position){
 
     
 
-    var Plink = '/chatbot/prediction/';
+    var Plink = "/chatbot/prediction/"; //'/chatbot/prediction/' "{% url 'chatbot-prediction' %}" 'chatbot-prediction'
     $.ajax({
         url : Plink,          
         type : 'POST',
@@ -557,11 +557,20 @@ function forPredict(position){
 }
 
 // reloading the web page every hour
-$(document).ready(function(){
-    setInterval(function(){ reload_page(); },60*60000); // 60*60000 : 1 hr
- });
+//$(document).ready(function(){
+//    setInterval(function(){ reload_page(); },60*60000); // 60*60000 : 1 hr
+// });
 
- function reload_page()
- {
-    window.location.reload(true);
- }
+//function reload_page()
+// {
+//    window.location.reload(true);
+// }
+
+var current = new Date();
+var future = new Date();
+future.setTime(future.getTime() + 3600000); //3600000 = 1 hour
+future.setMinutes(0);
+future.setSeconds(0);
+
+var timeout = (future.getTime() - current.getTime());
+setTimeout(function() { window.location.reload(true); }, timeout);
