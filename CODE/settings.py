@@ -30,7 +30,7 @@ SECRET_KEY = 'wha%frucu_vj&p-3(y7@zn!mq=+@v6b1rxu(&2=c!=&gvxq2e='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #True
 
-ALLOWED_HOSTS = [] # 'code-thankful-ratel-an.eu-gb.mybluemix.net'
+ALLOWED_HOSTS = ['https://n-dia.herokuapp.com/']
 
 
 # Application definition
