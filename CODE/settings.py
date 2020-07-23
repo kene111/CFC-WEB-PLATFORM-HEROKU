@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #True
 
-ALLOWED_HOSTS = ['https://n-dia.herokuapp.com/chatbot/ndia/']
+ALLOWED_HOSTS = ['n-dia.herokuapp.com']
 
 
 # Application definition
