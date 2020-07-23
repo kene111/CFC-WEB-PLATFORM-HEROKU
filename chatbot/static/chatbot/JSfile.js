@@ -58,7 +58,7 @@ function Route(position){
         center: {lat: lat, lng:long}
     });
     
-    var url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?";
+    var url = "https://maps.googleapis.com/maps/api/directions/json?"; //https://cors-anywhere.herokuapp.com/
     var destination = document.getElementById('id_destination').value;
     var current_location = lat +','+ long;
     const key = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
@@ -255,7 +255,7 @@ function hospitalLocation() {
 
 
 function Hospital(position){ 
-    var url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?";                 
+    var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";// https://cors-anywhere.herokuapp.com/                
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var location = lat +','+ long;
@@ -310,7 +310,7 @@ function Hospital(position){
                     center: {lat: lat, lng:long}
                 });
 
-                var url_2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?";
+                var url_2 = "https://maps.googleapis.com/maps/api/directions/json?";// https://cors-anywhere.herokuapp.com/
                 var destination = event.srcElement.innerHTML;
                 var current_location = lat +','+ long;
                 const key_2 = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
