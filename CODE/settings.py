@@ -25,12 +25,14 @@ ML_MODELS = os.path.join(BASE_DIR, 'chatbot/ML_models')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wha%frucu_vj&p-3(y7@zn!mq=+@v6b1rxu(&2=c!=&gvxq2e='
+#SECRET_KEY = 'wha%frucu_vj&p-3(y7@zn!mq=+@v6b1rxu(&2=c!=&gvxq2e='
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #True
 
-ALLOWED_HOSTS = ['https://n-dia.herokuapp.com/']
+ALLOWED_HOSTS = ['https://n-dia.herokuapp.com']
 
 
 # Application definition
