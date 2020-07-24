@@ -78,13 +78,15 @@ function Route(position){
                     console.log(duration)
                     console.log(response)
                     let decodedSets = google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline.points).toString();
-                    var array = decodedSets.replace(/[()]/g, function(d){
+                    console.log(decodedSets)
+                   var array = decodedSets.replace(/[()]/g, function(d){
                         return {
                             '(' : '[',
                             ')' : ']',
                         }[d];
                     });
-
+                   console.log(array)
+ 
                     var new_array = '['+array+']'; // this needed to be done for the parser to parse the array.
                     array = JSON.parse(new_array);
                     var coordinates = array.map(function(item){
@@ -94,9 +96,11 @@ function Route(position){
                           };
                         });
 
+                    console.log(coordinates)
+
                     var Path = new google.maps.Polyline({
 
-                        path: coordinates,
+                        path:  coordinates,//coordinates,
                         geodesic:true,
                         strokeColor: '#228B22',
                         strokeOpacity:1.0,
