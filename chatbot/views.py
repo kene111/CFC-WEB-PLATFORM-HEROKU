@@ -36,40 +36,39 @@ def chat(request):
 			if country == country:
 				Help.objects.create(Place=place, Disaster_Type=disaster_type)
 
-
-
-			print('error starts here')
-			get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column
-			if get_max == None:
-				pass
-			else:
-				max_var = get_max[0] # the variable, string.
-				filt = Help.objects.filter(Place = max_var).aggregate(maxoccurance=Max('Disaster_Type'))['maxoccurance'] # filter by max occuring disaster type
-				shows = Help.objects.filter(Place = max_var, Disaster_Type = filt)[0:1]
-
-				now = datetime.datetime.now(tz=pytz.UTC)
-				tnow = [now]
-
-				def Time_Hour(time):
-				    hour = []
-				    for ti in time:
-				        ti = str(ti)
-				        h = ti.split(' ')
-				        h = list(h)
-				        hour.append(int("".join(h[1][0:2]))) 
-				       
-				    return(hour)
-
-				value = Time_Hour(tnow)
-
-				if value[0] == 24:
-					Help.objects.all().delete() # clearing the database after 24 hrs
-
-				results = {'title':'Home','Hform': Hform,'shows': shows}
-				return render(request,'chatbot/ndia.html', results)
-
 	else:
 		Hform = help_others()
+
+	print('error starts here')
+	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column
+	if get_max == None:
+		pass
+	else:
+		max_var = get_max[0] # the variable, string.
+		filt = Help.objects.filter(Place = max_var).aggregate(maxoccurance=Max('Disaster_Type'))['maxoccurance'] # filter by max occuring disaster type
+		shows = Help.objects.filter(Place = max_var, Disaster_Type = filt)[0:1]
+
+		now = datetime.datetime.now(tz=pytz.UTC)
+		tnow = [now]
+
+		def Time_Hour(time):
+		    hour = []
+		    for ti in time:
+		        ti = str(ti)
+		        h = ti.split(' ')
+		        h = list(h)
+		        hour.append(int("".join(h[1][0:2]))) 
+		       
+		    return(hour)
+
+		value = Time_Hour(tnow)
+
+		if value[0] == 24:
+			Help.objects.all().delete() # clearing the database after 24 hrs
+
+		results = {'title':'Home','Hform': Hform,'shows': shows}
+		return render(request,'chatbot/ndia.html', results)
+
 
 	results = {'title':'Home','Hform': Hform,'shows': shows}
 	return render(request,'chatbot/ndia.html', results)

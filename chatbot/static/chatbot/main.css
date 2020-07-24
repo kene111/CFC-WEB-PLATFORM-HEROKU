@@ -606,7 +606,7 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-right: 1.5px;
   padding: 15px;
   background-color: maroon; /*maroon*/
-  height: 90px;
+  height: 130px;/*90*/
   border: 2.5px solid darkgray;
   
 }
@@ -628,6 +628,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 
+/*------------------------------------------------------------media queries for div 4 iin N.D.I.A (small screens) ----------------------------------------------------------------*/
 
 @media screen and (max-width: 600px) {
 #div_4{
@@ -635,15 +636,12 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-bottom: 1.5px;
   margin-right: 1.5px;
   padding: 15px;
-  background-color: maroon;
-  height: 150px;
+  background-color:  maroon;
+  height: 170px; /*150*/
   border: 2.5px solid darkgray;
   
 }
-}
-/*------------------------------------------------------------media queries for div 4 iin N.D.I.A (small screens) ----------------------------------------------------------------*/
 
-@media screen and (max-width: 600px) {
 
 .h_4{
  color:white; 
@@ -706,7 +704,7 @@ li a:hover, .l_drop:hover .drop_btn{
   padding:8px;
   margin:2.3px;
   font-size:15px;
-  width: 110px;
+  width: 104px;
 }
 
 

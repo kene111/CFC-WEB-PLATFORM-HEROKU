@@ -58,7 +58,7 @@ function Route(position){
         center: {lat: lat, lng:long}
     });
     
-    var url = "https://maps.googleapis.com/maps/api/directions/json?"; //https://cors-anywhere.herokuapp.com/
+    var url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?"; //https://cors-anywhere.herokuapp.com/
     var destination = document.getElementById('id_destination').value;
     var current_location = lat +','+ long;
     const key = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
@@ -71,89 +71,90 @@ function Route(position){
             if (xhttp.readyState == 4 && xhttp.status == 200) {
 
                 let response = JSON.parse(xhttp.responseText);
-                let distance =  response.routes[0].legs[0].distance.text;
-                let duration = response.routes[0].legs[0].duration.text;
-                console.log(distance)
-                console.log(duration)
-                console.log(response)
-                let decodedSets = google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline.points).toString();
-                var array = decodedSets.replace(/[()]/g, function(d){
-                    return {
-                        '(' : '[',
-                        ')' : ']',
-                    }[d];
-                });
-
-                var new_array = '['+array+']'; // this needed to be done for the parser to parse the array.
-                array = JSON.parse(new_array);
-                var coordinates = array.map(function(item){
-                      return {
-                        lat: item[0],
-                        lng: item[1],
-                      };
+                if (response.status == 'OK'){
+                    let distance =  response.routes[0].legs[0].distance.text;
+                    let duration = response.routes[0].legs[0].duration.text;
+                    console.log(distance)
+                    console.log(duration)
+                    console.log(response)
+                    let decodedSets = google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline.points).toString();
+                    var array = decodedSets.replace(/[()]/g, function(d){
+                        return {
+                            '(' : '[',
+                            ')' : ']',
+                        }[d];
                     });
 
-                var Path = new google.maps.Polyline({
+                    var new_array = '['+array+']'; // this needed to be done for the parser to parse the array.
+                    array = JSON.parse(new_array);
+                    var coordinates = array.map(function(item){
+                          return {
+                            lat: item[0],
+                            lng: item[1],
+                          };
+                        });
 
-                    path: coordinates,
-                    geodesic:true,
-                    strokeColor: '#228B22',
-                    strokeOpacity:1.0,
-                    strokeWeight:2
-                })
+                    var Path = new google.maps.Polyline({
 
-                Path.setMap(map); 
+                        path: coordinates,
+                        geodesic:true,
+                        strokeColor: '#228B22',
+                        strokeOpacity:1.0,
+                        strokeWeight:2
+                    })
 
-                var first = coordinates.shift();
-                var last = coordinates.pop();  
+                    Path.setMap(map); 
 
-                // Marker for starting position
-                var marker = new google.maps.Marker({
-                    position: first,
-                    map: map
-                });
-                marker.setMap(map);
+                    var first = coordinates.shift();
+                    var last = coordinates.pop();  
 
-                //marker for destination
+                    // Marker for starting position
+                    var marker = new google.maps.Marker({
+                        position: first,
+                        map: map
+                    });
+                    marker.setMap(map);
 
-                var marker = new google.maps.Marker({
-                    position: last,
-                    map: map,
-                });
-                marker.setMap(map);
+                    //marker for destination
 
-                var dest_dur = [];
-                dest_dur.push(distance)
-                dest_dur.push(duration)
+                    var marker = new google.maps.Marker({
+                        position: last,
+                        map: map,
+                    });
+                    marker.setMap(map);
 
-                console.log(dest_dur)
-                var i;
-                var parag;
-                var node;  
-                var pop_element;
+                    var dest_dur = [];
+                    dest_dur.push(distance)
+                    dest_dur.push(duration)
 
-                for(i=0; i < dest_dur.length; i++){
-                    parag = document.createElement("p");
-                    parag.id = i;
-                    parag.style.color = "white";
-                    parag.style.textAlign='center';
-                    node = document.createTextNode(dest_dur[i]);
-                    parag.appendChild(node);
-                    pop_element = document.getElementById("des_det"); //hold
-                    pop_element.appendChild(parag); 
-                }
-                pop_element.style.display = 'block';
+                    console.log(dest_dur)
+                    var i;
+                    var parag;
+                    var node;  
+                    var pop_element;
 
-                        $(document).mouseup(function (e) { 
-                    if ($(e.target).closest(".de_de").length 
-                                === 0) { 
-                        $(".de_de").hide(); 
-                        document.getElementById("des_det").innerHTML = "";
-                    } 
-                });
+                    for(i=0; i < dest_dur.length; i++){
+                        parag = document.createElement("p");
+                        parag.id = i;
+                        parag.style.color = "white";
+                        parag.style.textAlign='center';
+                        node = document.createTextNode(dest_dur[i]);
+                        parag.appendChild(node);
+                        pop_element = document.getElementById("des_det"); //hold
+                        pop_element.appendChild(parag); 
+                    }
+                    pop_element.style.display = 'block';
 
-
-
+                            $(document).mouseup(function (e) { 
+                        if ($(e.target).closest(".de_de").length 
+                                    === 0) { 
+                            $(".de_de").hide(); 
+                            document.getElementById("des_det").innerHTML = "";
+                        } 
+                    });
+                }else{
+                    alert("I am sorry, I currently cannot find the specified destination.")
+                }  
             }
           };
           xhttp.open("GET",url+"origin="+current_location+"&destination="+destination+"&key="+ key, true);
@@ -255,7 +256,7 @@ function hospitalLocation() {
 
 
 function Hospital(position){ 
-    var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";// https://cors-anywhere.herokuapp.com/                
+    var url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?";// https://cors-anywhere.herokuapp.com/                
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var location = lat +','+ long;
@@ -310,7 +311,7 @@ function Hospital(position){
                     center: {lat: lat, lng:long}
                 });
 
-                var url_2 = "https://maps.googleapis.com/maps/api/directions/json?";// https://cors-anywhere.herokuapp.com/
+                var url_2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?";// https://cors-anywhere.herokuapp.com/
                 var destination = event.srcElement.innerHTML;
                 var current_location = lat +','+ long;
                 const key_2 = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
