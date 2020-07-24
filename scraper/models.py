@@ -9,7 +9,7 @@ from django.db import models
 class Scraper(models.Model):
 	Headlines = models.CharField(max_length=3000)
 	Links = models.TextField(default="")
-	Countries = models.CharField(max_length=6, default="")
+	Countries = models.CharField(max_length=60, default="")
 	Date_Uploaded = models.TextField(default="")
 
 	def __str__(self):

@@ -18,10 +18,12 @@ import pytz
 
 def chat(request):
 
-
-	country = request.POST.get('country')
-
 	shows = []
+
+	country = request.POST.get('cou')
+	state = request.POST.get('sta')
+	print(country)
+	print(state)
 	
 
 	if request.method == 'POST':
@@ -32,14 +34,16 @@ def chat(request):
 			disaster_type = Hform.cleaned_data.get('disaster_type')
 			place =  place.upper()
 			disaster_type = disaster_type.upper()
-		
-			if country == country:
-				Help.objects.create(Place=place, Disaster_Type=disaster_type)
 
+			#country = request.POST.get('country')
+			#state = request.POST.get('state')
+
+			if country == country:
+				if state == state:
+					Help.objects.create(Place=place, Disaster_Type=disaster_type)	
 	else:
 		Hform = help_others()
 
-	print('error starts here')
 	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column
 	if get_max == None:
 		pass
@@ -68,6 +72,8 @@ def chat(request):
 
 		results = {'title':'Home','Hform': Hform,'shows': shows}
 		return render(request,'chatbot/ndia.html', results)
+
+	
 
 
 	results = {'title':'Home','Hform': Hform,'shows': shows}
@@ -132,6 +138,8 @@ def prediction(request):
 
 		lat = request.POST.get('lat')
 		lon = request.POST.get('long')
+		print(lat)
+		print(lon)
 
 		for i in range(len(current_stat)):
 			latitude.append(lat)
@@ -145,6 +153,10 @@ def prediction(request):
 		Earth_x = ChatbotConfig.EarthClass.predict(current_stat)
 		Tsu_x = ChatbotConfig.TsuClass.predict(current_stat)
 		Volc_x = ChatbotConfig.VolClass.predict(current_stat)
+
+		#Earth_x = [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1]
+		#Tsu_x = [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1]
+		#Volc_x = [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1]
 
 		for i in range(len(Earth_x)):
 			if Earth_x[i] == 0:

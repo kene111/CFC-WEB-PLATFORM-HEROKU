@@ -39,7 +39,7 @@
                 <h1 id = "h_3"> Help Save People!</h1>
                  <form id ='infrom_others'  method="post" action="">{% csrf_token %}
                      {{ Hform.as_p }}
-                    <button id = "others_bubu"  onclick = 'HelpO()' name="action">Send</button>
+                    <button id = "others_bubu" type="button" onclick = 'HelpO()' name="action">Send</button>
                 </form>     
                 <h5 id = "hh_3" style ="color:gray; text-align: center;"> Help others know of places currently being affected, so such areas can be avoided. </h5>
         </div>  

@@ -227,6 +227,8 @@ function News(position){                  // recieve coordinates from NewsLocati
 
             let response = JSON.parse(xhttp.responseText);
             var country = response.results[0].address_components[6].short_name;
+            console.log(1)
+            console.log(country)
 
             setRequestHeader();
 
@@ -334,7 +336,7 @@ function Hospital(position){
                             }[d];
                         });
 
-                        var new_array = '['+array+']'; // this needed to be done for the parser to parse the array.
+                        var new_array = '['+array+']'; // this needs to be done for the parser to parse the array.
                         array = JSON.parse(new_array);
                         var coordinates = array.map(function(item){
                                 return {
@@ -455,13 +457,12 @@ function sendLocation(position){                  // recieve coordinates from Ne
 
             let response = JSON.parse(xhttp.responseText);
             var address = response.results[0].formatted_address;
-            console.log(address);    // for the address at the backend
+            console.log(address)    // for the address at the backend
             console.log(location)  // for the location at the backend
 
             var link = '/scraper/maps/';
 
             setRequestHeader();
-            console.log('done1')
 
             $.ajax({
                 url : link,          
@@ -493,8 +494,6 @@ function HelpO() {
 
 
 function toTheBack(position){
-    
-
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var location = lat +','+ long;
@@ -505,20 +504,17 @@ function toTheBack(position){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             let response = JSON.parse(xhttp.responseText);
-            var country = response.results[0].address_components[6].short_name;
+            var count = response.results[0].address_components[6].short_name;
+            var state = response.results[0].address_components[5].short_name;
 
-            //if(country == country){
-                setRequestHeader();
-
-                var Hlink = '/chatbot/ndia/';// '/chatbot/ndia/'
-                $.ajax({
-                    url : Hlink,          
-                    type : 'POST',
-                    data: {'country':country},
-                    dataType: 'json',
-                });
-            //}
-            
+            setRequestHeader();
+            var Hlink = '/chatbot/ndia/';
+            $.ajax({
+                url : Hlink,          
+                type : 'POST',
+                data: {'cou':count,'sta':state},
+                dataType: 'json',
+            }); 
         }
       };
       xhttp.open("GET",  url+"latlng="+location+"&key="+ key, true);
@@ -526,7 +522,7 @@ function toTheBack(position){
 }
 
 
-// ------------------------------------------------------- For Predictions ----------------------------------------------------------------------
+// ------------------------------------------------------- For Predictions --------------------------------------------------------------------------------------------------
 
 window.addEventListener("load", predictions);
 function predictions() {

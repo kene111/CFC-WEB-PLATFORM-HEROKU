@@ -215,12 +215,12 @@ li a:hover, .l_drop:hover .drop_btn{
  #head #ul_1 .l_1 {
     float: none;
     width: 100%;
-    margin-left: 33%;
+    margin-left: 35%; /*33*/
   }
   #head #ul_1 .l_drop  {
     float: none;
     width: 100%;
-    margin-left: 26%;
+    margin-left: 28%; /*26*/
   }
 
   #head #logo {
@@ -231,11 +231,6 @@ li a:hover, .l_drop:hover .drop_btn{
     text-align: center;
     padding-right :0px;
   }
-
-  li a:hover, .l_drop:hover .drop_btn{
-    background-color: darkgray;
-}
-
 }
 
 
@@ -326,10 +321,11 @@ li a:hover, .l_drop:hover .drop_btn{
    color:black;
     font-family: 'Sanchez', serif;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-right: 10px;
     margin-left: 10px;
-    text-align: center;
+    text-align: left;
+    width:100%;
     padding-top: 50px;
     padding-right: 10px;
     padding-left: 10px; 
@@ -337,14 +333,16 @@ li a:hover, .l_drop:hover .drop_btn{
 
   #div_1 #p_1 {
     color: black;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 130px;
+    text-align:left;
+    width:100%;
     margin-right: 10px;
-    margin-left: 10px;
-    padding-top: 50px;
+    margin-left: 5px; /*10*/                    
+    padding-top: 20px; /*50*/
     padding-right: 15px;
     padding-bottom: 15px;
-    padding-left: 15px;
+    padding-left: 5px; /*15*/
     line-height: 1.6;
    font-family: 'Lato', sans-serif;
   }
@@ -434,7 +432,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
  #div_2 #h_2 {
     color: darkslategray;
-    text-align: center;
+    text-align: center; /*center*/
     padding-top: 5px;
     padding-right: 5px;
     padding-left: 5px;  
@@ -665,7 +663,7 @@ li a:hover, .l_drop:hover .drop_btn{
   padding:20px;
   margin:5px;
   font-size:15px;
-  width: 670px;
+  width: 670px; /*670px*/
 }
 
 .safe{
@@ -699,12 +697,20 @@ li a:hover, .l_drop:hover .drop_btn{
 
 @media screen and (max-width: 600px) {
 
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  background-color:gray;
+}
+
+
 .flex-container > div{
   background-color:whitesmoke;
   padding:8px;
   margin:2.3px;
   font-size:15px;
-  width: 104px;
+  width: 95.0%;/*104px*/
 }
 
 
@@ -1222,4 +1228,4 @@ li a:hover, .l_drop:hover .drop_btn{
 
 }
 
-}
+

@@ -24,7 +24,6 @@
                  <li class="l_1"><a href="{% url 'chatbot-ndia' %}">N.D.I.A</a></li>
                  <li class="l_1"><a href="{% url 'chatbot-chat' %}">Ask Me</a></li>
                  <li class="l_1"><a href="{% url 'scraper-maps' %}">Maps</a></li>
-                 <li class="l_1"><a href="{% url 'chatbot-about' %}">About</a></li>
                  <li class="l_drop">
                          <a href="javascript:void(0)" class="drop_btn">Information</a>
                          <div class="drop_content">
@@ -32,9 +31,10 @@
                            <a href="{% url 'scraper-tweets' %}">Voices</a>  
                          </div>
                  </li>
+                 <li class="l_1"><a href="{% url 'chatbot-about' %}">About</a></li>
              </ul>
           </div>
-          <div id="logo"> <a href ="/"> <img id ="ibm_image" src= '{% static "chatbot/cfc.png" %}' alt="IBM Call For Code"> </a> </div>
+          <div id="logo"> <a href ="https://developer.ibm.com/callforcode/"> <img id ="ibm_image" src= '{% static "chatbot/cfc.png" %}' alt="IBM Call For Code"> </a> </div>
         </header>
        
        <div class ="content">
@@ -52,11 +52,11 @@
        <script type="text/javascript" src = "{% static 'chatbot/JSfile.js' %}" ></script>
        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-       <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+       <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> 
        <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeOrhKsAdJ_iInlOzsyQS8aiB95FXj6cw&callback=getMyCurrentLocation"></script>
        <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"> </script>-->
        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
-                                                                
+                                                                  
 
 </body>
 </html>
