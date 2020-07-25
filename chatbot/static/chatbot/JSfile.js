@@ -483,7 +483,7 @@ function sendLocation(position){                  // recieve coordinates from Ne
 
 //------------------------------------------------------- Help Others -----------------------------------------------------------------
 
-
+window.addEventListener("load",  HelpO);
 function HelpO() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(toTheBack);
@@ -497,6 +497,8 @@ function toTheBack(position){
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var location = lat +','+ long;
+    //var place = document.getElementById('id_place').value;
+    //var disas_type = document.getElementById('id_disas').value;
     const key = "AIzaSyApZA2kzNzsYLa2IeGkOIB-XA87l5hz-vw";
 
     var xhttp = new XMLHttpRequest();

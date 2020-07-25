@@ -34,9 +34,6 @@ import re
 def scrape(request):
 
 	country = request.POST.get('country') # getting the country abbreviation for javascript
-	print('from scraper')
-	print(country)
-	
 	Scraper.objects.all().delete()
 	Country.objects.all().delete()
 

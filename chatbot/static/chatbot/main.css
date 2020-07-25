@@ -210,7 +210,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
 
 /*---------- Media Queries for Header for small devices ------------------------*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
  #head #ul_1 .l_1 {
     float: none;

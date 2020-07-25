@@ -19,28 +19,37 @@ import pytz
 def chat(request):
 
 	shows = []
-
 	country = request.POST.get('cou')
 	state = request.POST.get('sta')
+	
+	print('------------------------------------')
 	print(country)
 	print(state)
+	print('------------------------------------')
+
+	
+		 
 	
 
 	if request.method == 'POST':
 		Hform = help_others(request.POST)
 		if Hform.is_valid():
+		
+			#place = request.POST.get('place')
+			#disaster_type = request.POST.get('disas_type')
+			#place =  place.upper()
+			#disaster_type = disaster_type.upper()
+
 	
 			place = Hform.cleaned_data.get('place')
 			disaster_type = Hform.cleaned_data.get('disaster_type')
 			place =  place.upper()
 			disaster_type = disaster_type.upper()
 
-			#country = request.POST.get('country')
-			#state = request.POST.get('state')
-
 			if country == country:
 				if state == state:
-					Help.objects.create(Place=place, Disaster_Type=disaster_type)	
+					Help.objects.create(Place=place, Disaster_Type=disaster_type)
+
 	else:
 		Hform = help_others()
 
