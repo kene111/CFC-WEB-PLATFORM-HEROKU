@@ -14,50 +14,32 @@ import threading
 import numpy as np
 from  django.db.models import Max
 import pytz
+import requests
 # Create your views here.
 
 def chat(request):
 
 	shows = []
-	country = request.POST.get('cou')
-	state = request.POST.get('sta')
-	
-	print('------------------------------------')
-	print(country)
-	print(state)
-	print('------------------------------------')
-
-	
-		 
-	
-
 	if request.method == 'POST':
 		Hform = help_others(request.POST)
-		if Hform.is_valid():
-		
-			#place = request.POST.get('place')
-			#disaster_type = request.POST.get('disas_type')
-			#place =  place.upper()
-			#disaster_type = disaster_type.upper()
 
-	
+		if Hform.is_valid():
 			place = Hform.cleaned_data.get('place')
 			disaster_type = Hform.cleaned_data.get('disaster_type')
 			place =  place.upper()
 			disaster_type = disaster_type.upper()
 
-			if country == country:
-				if state == state:
-					Help.objects.create(Place=place, Disaster_Type=disaster_type)
+			Help.objects.create(Place=place, Disaster_Type=disaster_type)
 
 	else:
 		Hform = help_others()
 
-	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column
+	
+	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column   (1)
 	if get_max == None:
 		pass
 	else:
-		max_var = get_max[0] # the variable, string.
+		max_var = get_max[0] # the variable, string.                                                                                                                   (2)
 		filt = Help.objects.filter(Place = max_var).aggregate(maxoccurance=Max('Disaster_Type'))['maxoccurance'] # filter by max occuring disaster type
 		shows = Help.objects.filter(Place = max_var, Disaster_Type = filt)[0:1]
 
@@ -82,11 +64,10 @@ def chat(request):
 		results = {'title':'Home','Hform': Hform,'shows': shows}
 		return render(request,'chatbot/ndia.html', results)
 
-	
-
-
 	results = {'title':'Home','Hform': Hform,'shows': shows}
 	return render(request,'chatbot/ndia.html', results)
+
+
 
 
 # -------------------------------------------------------------------------------------------------------------------------
@@ -147,8 +128,6 @@ def prediction(request):
 
 		lat = request.POST.get('lat')
 		lon = request.POST.get('long')
-		print(lat)
-		print(lon)
 
 		for i in range(len(current_stat)):
 			latitude.append(lat)

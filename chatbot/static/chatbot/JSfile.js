@@ -483,45 +483,52 @@ function sendLocation(position){                  // recieve coordinates from Ne
 
 //------------------------------------------------------- Help Others -----------------------------------------------------------------
 
-window.addEventListener("load",  HelpO);
-function HelpO() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(toTheBack);
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
-}
+//window.addEventListener("load",  HelpO);
+//function HelpO() {
+//    if (navigator.geolocation) {
+//      navigator.geolocation.getCurrentPosition(toTheBack);
+//    } else {
+//      alert("Geolocation is not supported by this browser.");
+//    }
+//}
 
 
-function toTheBack(position){
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    var location = lat +','+ long;
+//function toTheBack(position){
+//    var lat = position.coords.latitude;
+//    var long = position.coords.longitude;
+//    var location = lat +','+ long;
     //var place = document.getElementById('id_place').value;
     //var disas_type = document.getElementById('id_disas').value;
-    const key = "AIzaSyApZA2kzNzsYLa2IeGkOIB-XA87l5hz-vw";
+    //const key = "AIzaSyApZA2kzNzsYLa2IeGkOIB-XA87l5hz-vw";
 
-    var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
 
-            let response = JSON.parse(xhttp.responseText);
-            var count = response.results[0].address_components[6].short_name;
-            var state = response.results[0].address_components[5].short_name;
+//    setRequestHeader();
+//    var Hlink = '/chatbot/ndia/';
+//    $.ajax({
+//        url : Hlink,          
+//        type : 'POST',
+//        data: {'location':location},
+//        dataType: 'json',
+//        success: function(data){
+//            $(document).reload(true)
+//            
+//        },
+//
+//    }); 
 
-            setRequestHeader();
-            var Hlink = '/chatbot/ndia/';
-            $.ajax({
-                url : Hlink,          
-                type : 'POST',
-                data: {'cou':count,'sta':state},
-                dataType: 'json',
-            }); 
-        }
-      };
-      xhttp.open("GET",  url+"latlng="+location+"&key="+ key, true);
-      xhttp.send();
-}
+   // var xhttp = new XMLHttpRequest();
+   //   xhttp.onreadystatechange = function() {
+   //     if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+            //let response = JSON.parse(xhttp.responseText);
+            //var count = response.results[0].address_components[6].short_name;
+            //ar state = response.results[0].address_components[5].short_name;
+
+      //  }
+     // };
+    //  xhttp.open("GET",  url+"latlng="+location+"&key="+ key, true);
+    //  xhttp.send();
+//}
 
 
 // ------------------------------------------------------- For Predictions --------------------------------------------------------------------------------------------------
