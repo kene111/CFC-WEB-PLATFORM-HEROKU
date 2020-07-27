@@ -6,10 +6,6 @@ __pycache__
 db.sqlite3
 media
 
-# from my code #
-/chatbot/chatbot_api/ibm_secrets.json
-/scraper/api_n_mlmodel/twitter_secrets.json
-
 
 # Backup files # 
 *.bak 
