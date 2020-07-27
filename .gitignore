@@ -7,8 +7,8 @@ db.sqlite3
 media
 
 # from my code #
-/ibm_secrets.json
-/twitter_secrets.json
+/chatbot/chatbot_api/ibm_secrets.json
+/scraper/api_n_mlmodel/twitter_secrets.json
 
 
 # Backup files # 
