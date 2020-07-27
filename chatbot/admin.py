@@ -3,5 +3,5 @@ from . import models
 
 # Register your models here.
 
-mymodel = [models.Help]
+mymodel = [models.Help, models.Emails]
 admin.site.register(mymodel)   

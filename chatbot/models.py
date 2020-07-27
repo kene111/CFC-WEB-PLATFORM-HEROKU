@@ -12,3 +12,10 @@ class Help(models.Model):
 	class Meta:
 		get_latest_by = ['Place']
 
+
+class Emails(models.Model):
+	Email =  models.EmailField(max_length=200,null=True,blank=True)
+
+	def __str__(self):
+		return self.Email
+

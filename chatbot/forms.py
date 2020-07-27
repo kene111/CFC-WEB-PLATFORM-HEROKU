@@ -65,8 +65,15 @@ class CommentForm(forms.Form):
 # http://www.learningaboutelectronics.com/Articles/How-to-create-a-text-area-in-a-Django-form.php
 
 
-class help_others(forms.Form):
+class helpForm(forms.Form):
 	place = forms.CharField(label='', max_length=3500, widget = forms.Textarea(attrs={'class' : 'placeclass','id':'id_place','placeholder':'Place of Occurence?'}))
 	disaster_type = forms.CharField(label='', max_length=300, widget = forms.Textarea(attrs={'class' : 'typeclass','id':'id_disas','placeholder':'Disaster Type?'}))
+
+
+class emailForm(forms.Form):
+	email = forms.EmailField(label='', widget = forms.Textarea(attrs={'class' : 'emailclass','id':'id_email','placeholder':'sendmealerts@mail.com'}))
+	#label='', max_length=3500, widget = forms.Textarea(attrs={'class' : 'emailclass','id':'id_email','placeholder':'sendmealerts@mail.com'})
+
+   
    
 

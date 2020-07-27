@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from . models import Help
+from . models import Help, Emails
 from django.http import HttpResponse
 import json
+from django.core.mail import send_mail
+from django.conf import settings
 from .apps import ChatbotConfig
 from django.views.generic import FormView
-from chatbot.forms import CommentForm, help_others
+from chatbot.forms import CommentForm, helpForm, emailForm
 import string
 from django.db.models import Count
 import pandas as pd
@@ -20,9 +22,8 @@ import requests
 def chat(request):
 
 	shows = []
-	if request.method == 'POST':
-		Hform = help_others(request.POST)
-
+	if   request.method == 'POST' and 'helpb' in request.POST:
+		Hform =  helpForm(request.POST, prefix='help')	
 		if Hform.is_valid():
 			place = Hform.cleaned_data.get('place')
 			disaster_type = Hform.cleaned_data.get('disaster_type')
@@ -32,7 +33,8 @@ def chat(request):
 			Help.objects.create(Place=place, Disaster_Type=disaster_type)
 
 	else:
-		Hform = help_others()
+		Hform = helpForm(prefix='help') 
+
 
 	
 	get_max = Help.objects.values_list('Place').annotate(place_count=Count('Place')).order_by('-place_count').first() #[0] # get the highest occuring variable in place column   (1)
@@ -43,29 +45,59 @@ def chat(request):
 		filt = Help.objects.filter(Place = max_var).aggregate(maxoccurance=Max('Disaster_Type'))['maxoccurance'] # filter by max occuring disaster type
 		shows = Help.objects.filter(Place = max_var, Disaster_Type = filt)[0:1]
 
-		now = datetime.datetime.now(tz=pytz.UTC)
-		tnow = [now]
+		print(get_max[1])
 
-		def Time_Hour(time):
-		    hour = []
-		    for ti in time:
-		        ti = str(ti)
-		        h = ti.split(' ')
-		        h = list(h)
-		        hour.append(int("".join(h[1][0:2]))) 
-		       
-		    return(hour)
 
-		value = Time_Hour(tnow)
+	if request.method == 'POST' and 'emailb' in request.POST:
+		Eform = emailForm(request.POST)
+		if Eform.is_valid():
+		
+			email = Eform.cleaned_data.get('email')
+			Emails.objects.create(Email=email)
+	else:
+		Eform =  emailForm()
 
-		if value[0] == 24:
-			Help.objects.all().delete() # clearing the database after 24 hrs
 
-		results = {'title':'Home','Hform': Hform,'shows': shows}
-		return render(request,'chatbot/ndia.html', results)
+	if get_max == None:
+		pass
 
-	results = {'title':'Home','Hform': Hform,'shows': shows}
+	else:
+		if get_max[1] == 1: # if the max entries equate to 10 send an email.
+			recievers = []
+		
+			for mail in Emails.objects.all():
+			    recievers.append(mail.Email)
+
+			subject ='Warning!'
+			message ='There is currently a case of {} at {}, please it is advised to stay clear off the area mentioned.'.format(filt, shows[0])
+			email_from = settings.EMAIL_HOST_USER
+			send_mail(subject, message, email_from, recievers, fail_silently = False)
+	
+					
+	now = datetime.datetime.now(tz=pytz.UTC)
+	tnow = [now]
+
+	def Time_Hour(time):
+	    hour = []
+	    for ti in time:
+	        ti = str(ti)
+	        h = ti.split(' ')
+	        h = list(h)
+	        hour.append(int("".join(h[1][0:2]))) 
+	       
+	    return(hour)
+
+	value = Time_Hour(tnow)
+
+
+	if value[0] == 0:
+		Help.objects.all().delete() # clearing the database after 24 hrs
+
+	results = {'title':'Home','Hform': Hform,'Eform':Eform,'shows': shows}
 	return render(request,'chatbot/ndia.html', results)
+
+	#results = {'title':'Home','Hform': Hform,'shows': shows}
+	#return render(request,'chatbot/ndia.html', results)
 
 
 
@@ -176,3 +208,6 @@ def prediction(request):
 def about(request):
 
 	return render(request, 'chatbot/about.html',{'title':'About'})
+
+
+

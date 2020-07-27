@@ -8,6 +8,15 @@ window.addEventListener("scroll", () => {
   document.querySelector("body").classList.add("scrolled"); 
 });
 
+
+function openForm() {
+  document.getElementById("e_Form").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("e_Form").style.display = "none";
+}
+
 // ........................................................Javascript function  DISPLAY LOCATION ................................................................
 function getMyCurrentLocation() {
     if (navigator.geolocation) {

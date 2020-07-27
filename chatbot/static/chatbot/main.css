@@ -485,14 +485,14 @@ li a:hover, .l_drop:hover .drop_btn{
   margin-left: 3px;
   padding: 10px;
   background-color: beige;
-  height: 190px;
+  height: 265px;
   border: 2.5px solid white;
 }
 
 #h_3{
   color: darkslategray; 
   text-align: center;
-  padding-top: 15px;
+  padding-top: 5px;
   padding-right: 15px;
   padding-left: 15px; 
   font-family: 'Sanchez', serif; 
@@ -501,7 +501,7 @@ li a:hover, .l_drop:hover .drop_btn{
 
 #hh_3{
   position:relative;
-  top:-100px; 
+  top:-80px; 
   font-family: 'Lato', sans-serif;
 }
 .placeclass{
@@ -623,40 +623,142 @@ li a:hover, .l_drop:hover .drop_btn{
 
 }
 
+/*----------------------------------------------------form div ------------------------------------------------------------------------*/
 
-/*
-@media (min-width:1200px){
 
-  .placeclass{
+.form-button {
+  background-color: #555;
+  color: white;
+  padding: 15px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
   position: relative;
-  width: 250px; 
+  bottom: 80px;
+  left: 515px;
+  width: 280px;
+  border-radius: 5px;
+}
+
+/* The popup form - hidden by default */
+.email-popup {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  left: 525px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 265px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container .Ebtn {
+  background-color: darkgreen;/*#4CAF50;*/
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .exit {
+  background-color: darkred;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+/* Add some hover effects to buttons */
+.form-container .exit:hover, .form-button:hover {
+  opacity: 1;
+}
+
+
+.emailclass{
+  width: 260px; 
   height: 15px; 
   resize: none;
-  left : 150px;
-  top: 5px;
+  font-family: 'PT Serif', serif;
 }
-.typeclass{
+
+
+
+
+@media (min-width: 600px) and (max-width: 900px) {
+
+  .form-button {
+  background-color: #555;
+  color: white;
+  padding: 15px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
   position: relative;
-  width: 310px; 
-  height: 15px; 
-  resize: none;
-  left : 450px;
-  top: -35px;
+  bottom: 80px;
+  left: 230px;
+  width: 280px;
+  border-radius: 5px;
+}
+
+.email-popup {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 240px;
+  /*bottom: 0;
+  right: 15px;*/
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
 }
 
 
-#others_bubu{
-  color:gray; 
+@media screen and (max-width: 600px) {
+
+
+.form-button {
+  background-color: #555;
+  color: white;
+  padding: 15px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
   position: relative;
-  top: -85px;
-  border-radius: 10px;
-  background-color: #555555;
-  font-size: 16px;
-  padding: 6px;
-  margin-left: 900px;
+  bottom: -5px;
+  left: 35px;
+  width: 280px;
+  border-radius: 5px;
 }
 
-}*/
+.email-popup {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 45px;
+  /*bottom: 0;
+  right: 15px;*/
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+}
+
+
 
 /*-------------------------------------------------------------N.D.I.A 4 -----------------------------------------------------------------------------------------*/
 

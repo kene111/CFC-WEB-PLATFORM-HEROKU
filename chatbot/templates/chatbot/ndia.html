@@ -39,8 +39,21 @@
                 <h1 id = "h_3"> Help Save People!</h1>
                  <form id ='infrom_others'  method="post" action="">{% csrf_token %}
                      {{ Hform.as_p }}
-                    <button id = "others_bubu" type = 'submit' name="action">Send</button>  <!--onclick = 'HelpO()'-->
-                </form>     
+                    <button id = "others_bubu" type = 'submit' name="helpb">Send</button>  <!--onclick = 'HelpO()'-->
+                </form>  
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+                <button style = "font-family: 'Lato', sans-serif;"class="form-button" onclick="openForm()">Get Informed</button>
+
+                <div class="email-popup" id="e_Form">
+                    <form action=""  method="post" class="form-container">{% csrf_token %}
+                        <p3 style = "font-family: 'Lato', sans-serif; color:gray"> Get notified via email when certain areas are not safe. </p3>
+                                {{ Eform.as_p }}
+                        <button type="submit" class="Ebtn" name = 'emailb'>Send</button>
+                        <button type="button" class="exit" onclick="closeForm()">Exit</button>
+                    </form>
+                </div>
+   
                 <h5 id = "hh_3" style ="color:gray; text-align: center;"> Help others know of places currently being affected, so such areas can be avoided. </h5>
         </div>  
 
