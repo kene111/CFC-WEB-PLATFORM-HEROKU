@@ -6,6 +6,11 @@ __pycache__
 db.sqlite3
 media
 
+# from my code #
+/ibm_secrets.json
+/twitter_secrets.json
+
+
 # Backup files # 
 *.bak 
 

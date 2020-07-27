@@ -70,7 +70,7 @@ function Route(position){
     var url = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?"; //https://cors-anywhere.herokuapp.com/
     var destination = document.getElementById('id_destination').value;
     var current_location = lat +','+ long;
-    const key = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
+    const key = "";    // Using the directions api key
 
     if (destination == "") {
         alert(" Please type in your destination");
@@ -228,7 +228,7 @@ function News(position){                  // recieve coordinates from NewsLocati
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
     var location = lat +','+ long;
-    const key = "AIzaSyApZA2kzNzsYLa2IeGkOIB-XA87l5hz-vw";
+    const key = ""; // geocoding api key
 
     var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -278,7 +278,7 @@ function Hospital(position){
     var radius =3000;
     //var type = 'Hospital';
     var name= 'Hospital';
-    const key = "AIzaSyDOCrH_Z5Yu05mweTynk0gx9BxQNT_3eo0";
+    const key = "";  /// places api key
 
 
      var xhttp = new XMLHttpRequest();
@@ -329,7 +329,7 @@ function Hospital(position){
                 var url_2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?";// https://cors-anywhere.herokuapp.com/
                 var destination = event.srcElement.innerHTML;
                 var current_location = lat +','+ long;
-                const key_2 = "AIzaSyBg2Fd0_JIZSolhyj-pZXUvpo7QNE9szXE";
+                const key_2 = "";  // directions api key
 
 
                 var xhttp = new XMLHttpRequest();
@@ -456,7 +456,7 @@ function sendLocation(position){                  // recieve coordinates from Ne
     var lat = position.coords.latitude; // 6.503618;
     var long = position.coords.longitude; //3.345743;
     var location = lat +','+ long;
-    const key = "AIzaSyApZA2kzNzsYLa2IeGkOIB-XA87l5hz-vw";
+    const key = ""; // geocoding api key
 
 
 

@@ -96,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'scraper', #Name of app
         'USER':'postgres',
-        'PASSWORD':'gr@yclouds',
+        'PASSWORD':os.environ.get('PASSWORD'),
         'HOST':'localhost',
         'PORT':'5432',
     },
@@ -146,7 +146,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tocrear.3@gmail.com'
-EMAIL_HOST_PASSWORD = '3L_9sy_Congr00'
+EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
